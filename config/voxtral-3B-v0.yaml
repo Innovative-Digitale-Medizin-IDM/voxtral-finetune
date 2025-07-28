@@ -1,0 +1,50 @@
+model:
+  pretrained: "mistralai/Voxtral-Mini-3B-2507"
+  seed:       0
+
+dataset: 
+  name: "multimed_german"
+  laguage: "de"
+
+training:
+  per_device_train_batch_size: 4
+  per_device_eval_batch_size:  4
+  learning_rate:             0.00001
+  gradient_accumulation_steps: 1
+  weight_decay:              0.01
+  #label_smoothing_factor:    0.002
+  warmup_steps:              500
+  num_train_epochs:          25
+  eval_steps:                100
+  save_steps:                200
+  logging_steps:             1
+  metric_for_best_model:     "wer"
+  greater_is_better:         False
+  dataloader_num_workers:    16
+  max_grad_norm:             5.0
+  dropout:                   0.0
+  attention_dropout:         0.0
+  #outpt_dir:                path/to/your/output/dir
+  save_total_limit:          1
+
+
+augmentations:
+  p: 0.8
+  transforms:
+    - name: BitCrush
+      args:
+        min_bit_depth: 8
+        max_bit_depth: 12
+      p: 0.8  
+    # - name: AddGaussianNoise
+    #   args:
+    #     min_amplitude: 0.001
+    #     max_amplitude: 0.015
+    #   p: 0.5
+    - name: LengthAwareTimeStretch   # dotted path ⇒ your subclass
+      args:
+        max_duration_sec: 30
+        min_rate: 0.5
+        max_rate: 2.0
+        skip_if_too_long: true
+      p: 1.0

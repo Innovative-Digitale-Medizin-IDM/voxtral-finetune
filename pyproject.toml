@@ -1,0 +1,27 @@
+[project]
+name = "voxtral-finetune"
+version = "0.1.0"
+description = "Voxtral Fine-Tuning Script for Transcription"
+readme = "README.md"
+authors = [
+    { name = "XXX", email = "YYY@ZZZ.ai" }
+]
+requires-python = ">=3.12"
+dependencies = [
+    "audiomentations>=0.42.0",
+    "bitsandbytes>=0.46.1",
+    "datasets[audio]>=4.0.0",
+    "evaluate>=0.4.5",
+    "jiwer==3.1.0",
+    "mistral-common>=1.8.3",
+    "tensorboard>=2.20.0",
+    "transformers[torch]>=4.54.0",
+]
+
+[project.scripts]
+voxtral-finetune = "voxtral_finetune.main:main"
+finetune = "voxtral_finetune.main:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"

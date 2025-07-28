@@ -1,0 +1,15 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+.idea/
+*.ipynb
+/weights/
+
+# Virtual environments
+.venv
+config/*
+!config/voxtral-3B-v0.yaml
