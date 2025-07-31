@@ -24,7 +24,7 @@ source .venv/bin/activate
 
 ### 2. Dataset Setup
 #### Examples
-We provide implementations for the [MultiMed](https://statics.teams.cdn.office.net/evergreen-assets/safelinks/2/atp-safelinks.html) dataet (german only) as example. If you run the script (see 3. Run Training), the dataset downloads automatically (~5 GB). It is recommended to start with this smaller dataset and watch the eval loss go down.
+We provide implementations for the [MultiMed](https://huggingface.co/leduckhai/MultiMed) dataet (german only) as example. If you run the script (see 3. Run Training), the dataset downloads automatically (~5 GB). It is recommended to start with this smaller dataset and watch the eval loss go down.
 
 We also provide [Librispeech](https://huggingface.co/datasets/openslr/librispeech_asr) as example. If you want to train on (a subset of) Librispeech, change the dataset name and language in the config file. Warning: this will automatically download the dataset from Huggingface to your disk (~120 GB).
 
